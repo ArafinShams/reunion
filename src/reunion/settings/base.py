@@ -54,7 +54,7 @@ ROOT_URLCONF = 'reunion.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')], #yours/path/to/templates/
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
