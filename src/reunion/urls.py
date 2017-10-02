@@ -1,5 +1,4 @@
 """reunion URL Configuration
-
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/1.11/topics/http/urls/
 Examples:
@@ -13,13 +12,22 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
+from django.conf import settings
 from django.conf.urls import url
+from django.conf.urls.static import static
 from django.contrib import admin
-from registrations.views import home, home2, home3, home4
+from registrations.views import HomeView, ProgramView, ContactView, RegistreView, RegistredView
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', home),
-	url(r'^home2/', home2),
-	url(r'^home3/', home3),
-	url(r'^home4/', home4),
+
+    # Static Pages
+    url(r'^$', HomeView.as_view(), name='home'),
+	url(r'^program/', ProgramView.as_view(), name='program'),
+	url(r'^contact/', ContactView.as_view(), name='contact'),
+
+# New Registrations
+    url(r'^registre/', RegistreView.as_view(), name='registre'),
+
+# Registered List
+    url(r'^registred/', RegistredView.as_view(), name='registredlist'),
 ]

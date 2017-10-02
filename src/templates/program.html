@@ -1,0 +1,147 @@
+{% extends "base.html" %}
+{% block head_title %} Welcome - Program {% endblock head_title %}
+{% block content %}
+{% load static %}
+
+<!-- Page Content -->
+ <div class="container">
+ <!-- Page Main Container -->       
+        <!-- Page Heading/Breadcrumbs -->
+
+        <h1 class="mt-4 mb-3">Program <small>Details</small></h1>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="/">Home</a>
+            </li>
+            <li class="breadcrumb-item active">Program</li>
+        </ol>
+
+       <!-- Image Header
+        <img class="img-fluid rounded mb-4" src="/images_mainsite/reunion_banner_2.jpg" alt="">
+        <!-- Marketing Icons Section -->
+
+        <h3 class="mt-4 mb-3">Program Details:</h3><hr>
+        <div class="row">
+            <div class="col-lg-4 mb-4">
+                <div class="card h-100 text-center">
+                    <img class="card-img-top img-fluid" src="{% static 'assets/images/images_mainsite/venue_1.jpg' %}" alt="Program Details">
+                    <div class="card-block">
+                        <h3 class="card-title"><i class="fa fa-map-marker" aria-hidden="true"></i> Venue:</h3>
+                        <h5 class="card-subtitle mb-2 text-muted">Garib-e-Newaz High School</h5>
+                        <p class="card-text"></p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="/registration/register" class="btn btn-success"><i class="fa fa-sign-in" aria-hidden="true"></i>  Register Online</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <div class="card h-100 text-center">
+                    <img class="card-img-top img-fluid" src="{% static 'assets/images/images_mainsite/calendar.jpg' %}" alt="Date">
+                    <div class="card-block">
+                        <h3 class="card-title"><i class="fa fa-calendar " aria-hidden="true"></i> Date</h3>
+                        <h5 class="card-subtitle mb-2 text-muted">29th, December</h5>
+                        <p class="card-text"></p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="/registration/register" class="btn btn-success"><i class="fa fa-sign-in" aria-hidden="true"></i> Register Online</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <div class="card h-100 text-center">
+                    <img class="card-img-top img-fluid" src="{% static 'assets/images/images_mainsite/register.jpg' %}" alt="Online Registration">
+                    <div class="card-block">
+                        <h3 class="card-title"><i class="fa fa-sign-in" aria-hidden="true"></i> Register Now</h3>
+                        <h5 class="card-subtitle mb-2 text-muted">Online Registration</h5>
+                        <p class="card-text"></p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="/registration/register" class="btn btn-success"><i class="fa fa-sign-in" aria-hidden="true"></i> Register Online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.row -->
+<!-- Content Row -->
+        <div class="row ">
+            <div class="col-lg-3 mb-3"> 
+                <div class="card h-100">
+                    <h3 class="card-header">Mate</h3>
+                        <img class="card-img-top img-fluid" src="http://placehold.it/750x450" alt="">
+                    <div class="card-block">
+                        <div class="display-4">BDT. 1000</div>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Cras justo odio</li>
+                        <li class="list-group-item">Dapibus ac facilisis in</li>
+                        <li class="list-group-item">Vestibulum at eros</li>
+                    </ul>
+                    <div class="card-footer">
+                        <a href="/registration/register" class="btn btn-success"><i class="fa fa-sign-in" aria-hidden="true"></i> Register Online</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 mb-3"> 
+                <div class="card h-100">
+                    <h3 class="card-header">Spous/Guest</h3>
+                        <img class="card-img-top img-fluid" src="http://placehold.it/750x450" alt="">
+
+                    <div class="card-block">
+                        <div class="display-4">BDT. 1000</div>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Cras justo odio</li>
+                        <li class="list-group-item">Dapibus ac facilisis in</li>
+                        <li class="list-group-item">Vestibulum at eros</li>
+                    </ul>
+                    <div class="card-footer">
+                        <a href="/registration/register" class="btn btn-success"><i class="fa fa-sign-in" aria-hidden="true"></i> Register Online</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 mb-3"> 
+                <div class="card h-100">
+                    <h3 class="card-header">Kids</h3>
+                            <img class="card-img-top img-fluid" src="http://placehold.it/750x450" alt="">
+                    <div class="card-block">
+                        <div class="display-4">BDT. 500</div>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Cras justo odio</li>
+                        <li class="list-group-item">Dapibus ac facilisis in</li>
+                        <li class="list-group-item">Vestibulum at eros</li>
+                    </ul>
+                <div class="card-footer">
+                        <a href="/registration/register" class="btn btn-success"><i class="fa fa-sign-in" aria-hidden="true"></i> Register Online</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 mb-3"> 
+                <div class="card h-100">
+                    <h3 class="card-header">Others</h3>
+                            <img class="card-img-top img-fluid" src="http://placehold.it/750x450" alt="">
+                    <div class="card-block">
+                        <div class="display-4">BDT. 300</div>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Cras justo odio</li>
+                        <li class="list-group-item">Dapibus ac facilisis in</li>
+                        <li class="list-group-item">Vestibulum at eros</li>
+                    </ul>
+                <div class="card-footer">
+                        <a href="/registration/register" class="btn btn-success"><i class="fa fa-sign-in" aria-hidden="true"></i> Register Online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.row -->
+
+   
+</div>
+ <!-- /.container -->
+<!--Page content Ends-->
+{% endblock content %}
+
