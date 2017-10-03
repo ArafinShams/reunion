@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block head_title %} Welcome - Home {% endblock head_title %}
+{% block head_title %} Reunion'94 - Welcome to the site {% endblock head_title %}
 {% block content %}
 {% load static %}
 <!-- The home section starts from here
@@ -25,7 +25,7 @@
                    --> 
                 </div>
                 <!-- Slide Two - Set the background image for this slide in the line below -->
-                <div class="carousel-item" style="background-image: url('/public/images_mainsite/bnr_2.jpg')">
+                <div class="carousel-item" style="background-image: url({% static 'assets/images/images_mainsite/bnr_2.jpg' %})">
              <!--       <div class="carousel-caption d-none d-md-block">
                         <h3>Second Slide</h3>
                         <p>This is a description for the second slide.</p>
@@ -33,7 +33,7 @@
                     -->
                 </div>
                 <!-- Slide Three - Set the background image for this slide in the line below -->
-                <div class="carousel-item" style="background-image: url('/public/images_mainsite/bnr_3.jpg')">
+                <div class="carousel-item" style="background-image: url({% static 'assets/images/images_mainsite/bnr_3.jpg' %})">
                  <!--   <div class="carousel-caption d-none d-md-block">
                         <h3>Third Slide</h3>
                         <p>This is a description for the third slide.</p>

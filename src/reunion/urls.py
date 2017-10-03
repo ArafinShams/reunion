@@ -14,20 +14,23 @@ Including another URLconf
 """
 from django.conf import settings
 from django.conf.urls import url
-from django.conf.urls.static import static
 from django.contrib import admin
-from registrations.views import HomeView, ProgramView, ContactView, RegistreView, RegistredView
+from django.conf.urls.static import static
+from django.views.generic import TemplateView
+from registrations.views import HomeView, RegistreView, RegistredView, RegistredDetails
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
 
     # Static Pages
     url(r'^$', HomeView.as_view(), name='home'),
-	url(r'^program/', ProgramView.as_view(), name='program'),
-	url(r'^contact/', ContactView.as_view(), name='contact'),
+	url(r'^program/', TemplateView.as_view(template_name ='program.html')),
+	url(r'^contact/', TemplateView.as_view(template_name ='contact.html')),
 
 # New Registrations
     url(r'^registre/', RegistreView.as_view(), name='registre'),
 
 # Registered List
-    url(r'^registred/', RegistredView.as_view(), name='registredlist'),
+    url(r'^registredlist/', RegistredView.as_view(), name='registredlist'),
+# Registered Details
+    url(r'^registreddetails/', RegistredDetails.as_view(), name='registreddetails'),
 ]

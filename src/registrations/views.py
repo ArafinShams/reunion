@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+from django.views import View
 from django.views.generic.base import TemplateView
 
 
@@ -13,17 +14,6 @@ class HomeView(TemplateView):
 		context = super(HomeView, self).get_context_data(*args, **kwargs)
 		return context
 
-class ProgramView(TemplateView):
-	template_name = 'program.html'
-	def get_context_data(self, *args, **kwargs):
-		context = super(ProgramView, self).get_context_data(*args, **kwargs)
-		return context
-
-class ContactView(TemplateView):
-	template_name = 'contact.html'
-	def get_context_data(self, *args, **kwargs):
-		context = super(ContactView, self).get_context_data(*args, **kwargs)
-		return context
 
 class RegistreView(TemplateView):
 	template_name = 'registre.html'
@@ -35,4 +25,10 @@ class RegistredView(TemplateView):
 	template_name = 'registred.html'
 	def get_context_data(self, *args, **kwargs):
 		context = super(RegistredView, self).get_context_data(*args, **kwargs)
+		return context
+
+class RegistredDetails(TemplateView):
+	template_name = 'registreddetails.html'
+	def get_context_data(self, *args, **kwargs):
+		context = super(RegistredDetails, self).get_context_data(*args, **kwargs)
 		return context
