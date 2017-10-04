@@ -12,25 +12,36 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf import settings
 from django.conf.urls import url
 from django.contrib import admin
-from django.conf.urls.static import static
 from django.views.generic import TemplateView
-from registrations.views import HomeView, RegistreView, RegistredView, RegistredDetails
+from registrations.views import (
+    RegistredListview, #ClassBases LIST view
+    RegistredDetailView,#ClassBases DETAIL view
+    # Registred_Listview, #Functionbased view 
+    RegistreView,
+    RegistredView,
+)
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
 
-    # Static Pages
-    url(r'^$', HomeView.as_view(), name='home'),
-	url(r'^program/', TemplateView.as_view(template_name ='program.html')),
-	url(r'^contact/', TemplateView.as_view(template_name ='contact.html')),
+# Static Pages
+    url(r'^$', TemplateView.as_view(template_name='home.html')),
+	url(r'^program/$', TemplateView.as_view(template_name ='program.html')),
+	url(r'^contact/$', TemplateView.as_view(template_name ='contact.html')),
 
 # New Registrations
-    url(r'^registre/', RegistreView.as_view(), name='registre'),
+    url(r'^registre/$', RegistreView.as_view(), name='registre'),
 
 # Registered List
-    url(r'^registredlist/', RegistredView.as_view(), name='registredlist'),
+    #Using Functionbased View
+    #url(r'^registredlist/', Registred_Listview), #FunctionBasedview 
+    url(r'^registred/$', RegistredListview.as_view(), name='resistredlist'), #ClassBased view
+
 # Registered Details
-    url(r'^registreddetails/', RegistredDetails.as_view(), name='registreddetails'),
+# # Details using Primary Key
+    url(r'^registred/(?P<pk>\w*)/$', RegistredDetailView.as_view(), name='registreddetails')
+
+
 ]

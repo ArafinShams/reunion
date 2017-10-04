@@ -1,8 +1,8 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Personal, Address, Number
+from .models import RegistrationPersonal, RegistrationAddress, RegistrationPayment
 
-admin.site.register(Personal)
-admin.site.register(Address)
-admin.site.register(Number)
+admin.site.register(RegistrationPersonal)
+admin.site.register(RegistrationAddress)
+admin.site.register(RegistrationPayment)
