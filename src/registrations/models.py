@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.urlresolvers import reverse
 
 # Create your models here.
 class RegistrationPersonal(models.Model):
@@ -13,11 +14,12 @@ class RegistrationPersonal(models.Model):
 	organization   = models.CharField(max_length=120, null=True, blank=True)
 	timestamp      = models.DateTimeField(auto_now_add=True)
 	updated        = models.DateTimeField(auto_now=True)
+
 	def __str__(self):
 		return "%s %s" %(self.mobilenumber, self.name)
 
 class RegistrationAddress(models.Model):
-	addserial         = models.ForeignKey(RegistrationPersonal, on_delete=models.CASCADE)
+	registrationpersonal         = models.ForeignKey(RegistrationPersonal, on_delete=models.CASCADE)
 	mobilenumber      = models.CharField(max_length=30)
 	address           = models.CharField(max_length=200)
 	postcode          = models.CharField(max_length=10)
@@ -38,13 +40,14 @@ class RegistrationAddress(models.Model):
 
 
 class RegistrationPayment(models.Model):
-	payserial         = models.ForeignKey(RegistrationAddress, on_delete=models.CASCADE)
-	mobilenumber      = models.CharField(max_length=30)
-	amount            = models.CharField(max_length=200)
-	method            = models.CharField(max_length=10)
-	details           = models.CharField(max_length=120)
-	remarks           = models.CharField(max_length=120)
-	timestamp         = models.DateTimeField(auto_now_add=True)
-	updated           = models.DateTimeField(auto_now=True)
+	registrationaddress   = models.ForeignKey(RegistrationAddress, on_delete=models.CASCADE)
+	mobilenumber    	  = models.CharField(max_length=30)
+	payableamount   	  = models.CharField(max_length=200)
+	paidamount      	  = models.CharField(max_length=200)
+	method          	  = models.CharField(max_length=10)
+	details         	  = models.CharField(max_length=120)
+	remarks         	  = models.CharField(max_length=120)
+	timestamp       	  = models.DateTimeField(auto_now_add=True)
+	updated          	 = models.DateTimeField(auto_now=True)
 	def __str__(self):
-		return "%s %s" %(self.mobilenumber, self.amount)
+		return "%s %s" %(self.mobilenumber, self.paidamount)

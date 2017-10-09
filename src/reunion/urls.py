@@ -18,30 +18,32 @@ from django.views.generic import TemplateView
 from registrations.views import (
     RegistredListview, #ClassBases LIST view
     RegistredDetailView,#ClassBases DETAIL view
-    # Registred_Listview, #Functionbased view 
-    RegistreView,
-    RegistredView,
+    Registration_createview,
+    PaymentUpdate
 )
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
 
 # Static Pages
-    url(r'^$', TemplateView.as_view(template_name='home.html')),
-	url(r'^program/$', TemplateView.as_view(template_name ='program.html')),
-	url(r'^contact/$', TemplateView.as_view(template_name ='contact.html')),
-
-# New Registrations
-    url(r'^registre/$', RegistreView.as_view(), name='registre'),
+    url(r'^$', TemplateView.as_view(template_name='static_home.html'), name='home'),
+	url(r'^program/$', TemplateView.as_view(template_name ='static_program.html'), name='program'),
+	url(r'^contact/$', TemplateView.as_view(template_name ='static_contact.html'), name='contact' ),
 
 # Registered List
     #Using Functionbased View
     #url(r'^registredlist/', Registred_Listview), #FunctionBasedview 
-    url(r'^registred/$', RegistredListview.as_view(), name='resistredlist'), #ClassBased view
+    url(r'^registration/$', RegistredListview.as_view(), name='resistredlist'), #ClassBased view
 
-# Registered Details
+    # Registered Details
 # # Details using Primary Key
-    url(r'^registred/(?P<pk>\w*)/$', RegistredDetailView.as_view(), name='registreddetails')
+    url(r'^registration/(?P<pk>[0-9]+)/$', RegistredDetailView.as_view(), name='registred_details'),
+
+# Registrations Create View
+    url(r'^registration/create/$', Registration_createview, name='registration'),
+
+#Update Payment
+   url(r'^registration/(?P<pk>[0-9]+)/payment/$', PaymentUpdate.as_view(), name='payment'),
 
 
 ]

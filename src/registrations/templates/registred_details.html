@@ -1,4 +1,4 @@
-  {% extends "base.html" %}
+{% extends "base.html" %}
 {% block head_title %} Reunion'94 - Registred Details {% endblock head_title %}
 {% block content %}
 {% load static %}
@@ -34,11 +34,11 @@
     </div>
         <div class="row">
                     <div class="form-group col-md-4">
-                        <p><b>Reg No:</b> number</p>
+                        <p><b>Reg No:</b> {{ object.registrationaddress.registrationpersonal.id}}</p>
                     </div>
                     
                     <div class="form-group col-md-4 offset-md-4">
-                        <p><b>Reg date:</b> date created at </p>
+                        <p><b>Reg date:</b> {{ object.registrationaddress.registrationpersonal.timestamp }}</p>
                     </div>
         </div>
 <!-- row ends Name and Spouse Name -->
@@ -50,28 +50,28 @@
 <!-- row ends Name and Spouse Name -->
         <div class="row">
                    <div class="form-group col-md-5">
-                        <p><b>Name :</b> {{ object.payserial.addserial.name}} </p>
+                        <p><b>Name :</b> {{ object.registrationaddress.registrationpersonal.name}} </p>
                     </div>   
 
                     <div class="form-group col-md-4">
-                        <p><b>Spous :</b> {{ object.payserial.addserial.spousname}} </p>
+                        <p><b>Spous :</b> {{ object.registrationaddress.registrationpersonal.spousname}} </p>
                     </div>   
             <div class="form-group col-md-3">
-                        <p><b>Gender :</b> {{ object.payserial.addserial.gender}} </p>
+                        <p><b>Gender :</b> {{ object.registrationaddress.registrationpersonal.gender}} </p>
                     </div>   
         </div>
 <!-- row strts Kids, mobile no and email -->
                 
         <div class="row">
                    <div class="form-group col-md-2">
-                        <p><b>Kids :</b> {{ object.payserial.addserial.kids}} </p>
+                        <p><b>Kids :</b> {{ object.registrationaddress.registrationpersonal.kids}} </p>
                     </div>   
 
                     <div class="form-group col-md-4">
-                        <p><b>Mobile No :</b> {{ object.payserial.addserial.mobilenumber}} </p>
+                        <p><b>Mobile No :</b> {{ object.registrationaddress.registrationpersonal.mobilenumber}} </p>
                     </div>   
             <div class="form-group col-md-6">
-                        <p><b>E-mail :</b> {{ object.payserial.addserial.email}} </p>
+                        <p><b>E-mail :</b> {{ object.registrationaddress.registrationpersonal.email}} </p>
                     </div>   
         </div>
 <!-- row ends Kids, mobile no and email -->
@@ -79,14 +79,14 @@
 <!-- row Starts Blood Group Profession and Organizations -->
         <div class="row"> 
                     <div class="form-group col-md-3">
-                        <p><b>Blood group :</b> {{ object.payserial.addserial.bloodgroup}} </p>
+                        <p><b>Blood group :</b> {{ object.registrationaddress.registrationpersonal.bloodgroup}} </p>
                     </div>  
                     <div class="form-group col-md-5">
-                        <p><b>Profession :</b> {{ object.payserial.addserial.profession}} </p>
+                        <p><b>Profession :</b> {{ object.registrationaddress.registrationpersonal.profession}} </p>
                     </div>  
 
                     <div class="form-group col-md-4">
-                        <p><b>Organization :</b> {{ object.payserial.addserial.organization}} </p>
+                        <p><b>Organization :</b> {{ object.registrationaddress.registrationpersonal.organization}} </p>
                     </div>  
         </div>
 
@@ -95,10 +95,10 @@
 <!-- row Starts Address and Post Code -->
         <div class="row">
                        <div class="form-group col-md-8">
-                        <p><b>Address :</b> {{ object.payserial.address}} </p>
+                        <p><b>Address :</b> {{ object.registrationaddress.address}} </p>
                         </div>
                        <div class="form-group col-md-3">
-                        <p><b>Post Code :</b> {{ object.payserial.postcode}} </p>
+                        <p><b>Post Code :</b> {{ object.registrationaddress.postcode}} </p>
                         </div>
         </div>
 <!-- row Ends Address and Post Code -->
@@ -106,15 +106,15 @@
 <!-- row Starts Thana, District and Division -->
         <div class="row">            
                     <div class="form-group col-md-5">
-                        <p><b>Upozila :</b> {{ object.payserial.thana}} </p>
+                        <p><b>Upozila :</b> {{ object.registrationaddress.thana}} </p>
                     </div>
 
                     <div class="form-group col-md-4">
-                        <p><b>District :</b> {{ object.payserial.district}} </p>
+                        <p><b>District :</b> {{ object.registrationaddress.district}} </p>
                     </div>
 
                       <div class="form-group col-md-3">
-                        <p><b>Division :</b> {{ object.payserial.division }} </p>
+                        <p><b>Division :</b> {{ object.registrationaddress.division }} </p>
                     </div>
         </div>
 <!-- row Ends Thana, District and Division -->
@@ -134,17 +134,16 @@
                                             <th class="text-center">Kids</th>
                                             <th class="text-center">Others</th>
                                             <th class="text-center"> Total</th>
-                                        
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr class="text-center">
-                                            <td> {{ object.payserial.mate}} </td>
-                                            <td> {{ object.payserial.spous}} </td>
-                                            <td> {{ object.payserial.kids}} </td>
-                                            <td> {{ object.payserial.guests}} </td>
-                                            <td> {{ object.payserial.others}} </td>
-                                            <td>BDT.  {{ object.payserial.total}} </td>
+                                            <td> {{ object.registrationaddress.mate}} </td>
+                                            <td> {{ object.registrationaddress.spous}} </td>
+                                            <td> {{ object.registrationaddress.kids}} </td>
+                                            <td> {{ object.registrationaddress.guests}} </td>
+                                            <td> {{ object.registrationaddress.others}} </td>
+                                            <td>BDT. {{ object.registrationaddress.total}} </td>
                                         </tr>
                                         </tbody>
                                 </table>
@@ -157,10 +156,52 @@
                 </div>
         </div>
             <!-- /.row -->
+<!-- Payment Table Started-->
+
+
+        <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover table-bordered">
+                                <thead class="thead-inverse " >
+                                        <tr >
+                                            <th class="text-center">Payable Amount</th>
+                                            <th class="text-center">Paid Amount</th>
+                                            <th class="text-center">Payment Method</th>
+                                            <th class="text-center">Payment Details</th>
+                                            <th class="text-center">Remarks</th>                                      
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="text-center">
+                                            <td> {{ object.payableamount}} </td>
+                                            <td> {{ object.paidamount}} </td>
+                                            <td> {{ object.method}} </td>
+                                            <td> {{ object.details}} </td>
+                                            <td> {{ object.remarks}} </td>
+                                 
+                                        </tr>
+                                        </tbody>
+                                </table>
+                            </div>
+                            <!-- /.table-responsive -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+        </div>
+            <!-- /.row -->
+
+
+
+<!-- Payment Table Ends-->
             <div class="form-group">
                         <button type="submit" class="btn btn-primary">Print</button>
             </div>
-
 </div>
     <!-- /.container -->
 <!--Page content Ends-->
