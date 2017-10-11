@@ -1,4 +1,6 @@
 {% extends "base.html" %}
+{% load crispy_forms_tags %}
+
 {% block head_title %} Reunion'94 - Registration {% endblock head_title %}
 {% block content %}
 {% load static %}
@@ -32,12 +34,11 @@
 <!-- Form Start -->
 <form method="post" enctype="multipart/form-data" >{% csrf_token %}
 
-		{% include 'registrations/reg_form_template.html' %}
+		{% include 'forms/form_registration_create.html' %}
 
 {% if per_errors or add_errors or pay_errors %}
 <div class="form-group">
 	<h5 class="alert-danger">Errors</h5>
-
 
 
 	{% for per in per_errors %}

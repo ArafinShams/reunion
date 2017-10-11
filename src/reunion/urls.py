@@ -15,6 +15,9 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from django.views.generic import TemplateView
+#User Login View
+from django.contrib.auth.views import LoginView,logout
+
 from registrations.views import (
     RegistredListview, #ClassBases LIST view
     RegistredDetailView,#ClassBases DETAIL view
@@ -29,6 +32,14 @@ urlpatterns = [
     url(r'^$', TemplateView.as_view(template_name='static_home.html'), name='home'),
 	url(r'^program/$', TemplateView.as_view(template_name ='static_program.html'), name='program'),
 	url(r'^contact/$', TemplateView.as_view(template_name ='static_contact.html'), name='contact' ),
+
+
+#Login View
+    url(r'^login/$', LoginView.as_view(), {'next': 'home'}, name='login'),
+
+#Logout URL
+    url(r'^logout/$', logout, {'next_page': 'home'}, name='logout'),
+
 
 # Registered List
     #Using Functionbased View

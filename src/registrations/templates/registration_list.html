@@ -45,12 +45,18 @@
                                             <td>{{obj.registrationaddress.registrationpersonal.bloodgroup}}</td>
                                             <td>{{ obj.registrationaddress.district }}</td>
                                             <td>BDT. {{ obj.registrationaddress.total }}</td>
-                                            <td>Pending {{ obj.status }}</td>
+                                            <td>{{ obj.status }}</td>
 
-                                            <td><a href="{{ obj.registrationaddress.registrationpersonal.id }}/" class="btn btn-outline-success" role="button" >Details</a>
-                                            <a href="{{ obj.registrationaddress.registrationpersonal.id }}/payment" class="btn btn-outline-success" role="button" >Details</a>
+                                            <td><a href="{{ obj.registrationaddress.registrationpersonal.id }}/" class="btn btn-info btn-sm" role="button" ><i class="fa fa-file-text-o" aria-hidden="true"></i> Details</a>
+                                            <a href="{{ obj.registrationaddress.registrationpersonal.id }}/payment" class="btn btn-success btn-sm" role="button" >
+<i class="fa fa-credit-card" aria-hidden="true"></i> Payment</a>
+
+<!--                                             <i class="fa fa-plus" aria-hidden="true"></i> Payment</a>
+ --><!--  <i class="fa fa-money" aria-hidden="true"></i>
+ Payment</a> -->
                                             </td>
-                                     
+                 
+
                                         </tr>
 {% endfor %}       
                                     </tbody>

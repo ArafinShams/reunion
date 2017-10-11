@@ -13,7 +13,10 @@
  	    <h1 class="mt-4 mb-3">Registred <small>Details</small></h1>
         <ol class="breadcrumb mt-2 mb-2">
             <li class="breadcrumb-item">
-                <a href="/">Home</a>
+                <a href="{% url 'home' %}">Home</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a href="{% url 'resistredlist' %}">Registred List</a>
             </li>
             <li class="breadcrumb-item active">Registration Details</li>
         </ol>
@@ -34,7 +37,7 @@
     </div>
         <div class="row">
                     <div class="form-group col-md-4">
-                        <p><b>Reg No:</b> {{ object.registrationaddress.registrationpersonal.id}}</p>
+                        <p><b>Reg No:</b>{{ object.registrationaddress.registrationpersonal.id}}</p>
                     </div>
                     
                     <div class="form-group col-md-4 offset-md-4">
@@ -172,7 +175,8 @@
                                             <th class="text-center">Paid Amount</th>
                                             <th class="text-center">Payment Method</th>
                                             <th class="text-center">Payment Details</th>
-                                            <th class="text-center">Remarks</th>                                      
+                                            <th class="text-center">Remarks</th>   
+                                            <th class="text-center">Add Payment</th>                                      
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -182,6 +186,9 @@
                                             <td> {{ object.method}} </td>
                                             <td> {{ object.details}} </td>
                                             <td> {{ object.remarks}} </td>
+                                            <td> 
+
+                                                <a href="payment" class="btn btn-outline-success btn-sm" role="button" ><i class="fa fa-plus" aria-hidden="true"></i> Payment</a> </td>
                                  
                                         </tr>
                                         </tbody>
@@ -199,9 +206,9 @@
 
 
 <!-- Payment Table Ends-->
-            <div class="form-group">
+<!--             <div class="form-group">
                         <button type="submit" class="btn btn-primary">Print</button>
-            </div>
+            </div> -->
 </div>
     <!-- /.container -->
 <!--Page content Ends-->

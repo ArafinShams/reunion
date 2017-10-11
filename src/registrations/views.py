@@ -9,16 +9,18 @@ from django.views.generic.edit import CreateView, UpdateView
 from .forms import RegistrationPersonalCreateForm, RegistrationAddressCreateForm, RegistrationPaymentCreateForm
 # import models to access db data
 from .models import RegistrationPersonal, RegistrationAddress, RegistrationPayment
+
 # Create your views here.
 
 class RegistredListview(ListView):
-	template_name = 'registredlist.html'
+	template_name = 'registration_list.html'
 	context_object_name = 'registered_lists'
 	queryset =  RegistrationPayment.objects.all()
 
 class RegistredDetailView(LoginRequiredMixin, DetailView):
 	model = RegistrationPayment
-	template_name = 'registred_details.html'
+	login_url = '/login/'
+	template_name = 'registration_details.html'
 
 def Registration_createview(request):
 	personal_form = RegistrationPersonalCreateForm(prefix="personal") 
@@ -40,6 +42,11 @@ def Registration_createview(request):
 		#foreign Key Personal -> address
 		address.registrationpersonal = personal
 		address.mobilenumber = personal.mobilenumber
+
+#Address Total Rate Mate = 1000, Spous = 1000, Guests = 1000, Kids = 800, Others 500 
+		grand_total = (int(address.mate) * 1000) + (int(address.spous) * 1000) +  (int(address.guests) * 1000) + (int(address.kids) * 800) + (int(address.others) * 500)
+		address.total = str(grand_total)
+
 		address.save()
 #Payment Model Save
 #foreign Key address -> Payment
@@ -48,7 +55,7 @@ def Registration_createview(request):
 		payment.payableamount = address.total
 		payment.save()
 # Post Save
-		return HttpResponseRedirect("/registred/")
+		return HttpResponseRedirect("/registration/")
 	if personal_form.errors or address_form.errors or payment_form.errors:
 		per_errors = personal_form.errors
 		add_errors = address_form.errors
@@ -57,11 +64,20 @@ def Registration_createview(request):
 	context = {"personal_form": personal_form, "address_form": address_form, "per_errors": per_errors, "add_errors": add_errors, "pay_errors": pay_errors}
 	return render(request, template_name, context)
 
+
+
 class PaymentUpdate(LoginRequiredMixin, UpdateView):
 	model = RegistrationPayment
+	login_url = '/login/'
 	template_name = 'payment_update.html'
-	fields = ['mobilenumber', 'payableamount','paidamount', 'method', 'details', 'remarks']
-	success_url = '/registred/'
+	fields = [
+	'mobilenumber', 'payableamount','paidamount', 'method', 'details', 'status', 'remarks'
+	]
+	success_url = '/registration/'
+
+
+
+
 
 #function based view
 # def home(request):
