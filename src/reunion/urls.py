@@ -12,7 +12,9 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url
+from django.conf import settings
+from django.conf.urls import include,url
+from django.conf.urls.static import static
 from django.contrib import admin
 from django.views.generic import TemplateView
 #User Login View
@@ -21,7 +23,7 @@ from django.contrib.auth.views import LoginView,logout
 from registrations.views import (
     RegistredListview, #ClassBases LIST view
     RegistredDetailView,#ClassBases DETAIL view
-    Registration_createview,
+    Registration_createview,#ClassBases DETAIL view
     PaymentUpdate
 )
 
@@ -33,21 +35,19 @@ urlpatterns = [
 	url(r'^program/$', TemplateView.as_view(template_name ='static_program.html'), name='program'),
 	url(r'^contact/$', TemplateView.as_view(template_name ='static_contact.html'), name='contact' ),
 
-
 #Login View
     url(r'^login/$', LoginView.as_view(), {'next': 'home'}, name='login'),
 
 #Logout URL
     url(r'^logout/$', logout, {'next_page': 'home'}, name='logout'),
 
-
 # Registered List
     #Using Functionbased View
     #url(r'^registredlist/', Registred_Listview), #FunctionBasedview 
     url(r'^registration/$', RegistredListview.as_view(), name='resistredlist'), #ClassBased view
 
-    # Registered Details
-# # Details using Primary Key
+# Registered Details
+    # # Details using Primary Key
     url(r'^registration/(?P<pk>[0-9]+)/$', RegistredDetailView.as_view(), name='registred_details'),
 
 # Registrations Create View
@@ -55,6 +55,8 @@ urlpatterns = [
 
 #Update Payment
    url(r'^registration/(?P<pk>[0-9]+)/payment/$', PaymentUpdate.as_view(), name='payment'),
-
-
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

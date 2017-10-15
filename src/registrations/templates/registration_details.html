@@ -10,7 +10,7 @@
         <h1 class="mt-4 mb-3">Registration 
  <small>Details</small></h1>
  -->
- 	    <h1 class="mt-4 mb-3">Registred <small>Details</small></h1>
+ 	    <h3 class="mt-4 mb-3">Registration <small>Details</small></h3>
         <ol class="breadcrumb mt-2 mb-2">
             <li class="breadcrumb-item">
                 <a href="{% url 'home' %}">Home</a>
@@ -47,7 +47,7 @@
 <!-- row ends Name and Spouse Name -->
         <div class="row">
                     <div class="form-group col-md-4 offset-md-4 mb-4">
-                    <img src="" class="rounded img-fluid" style="width:200 em; height: 200 em" alt="User Image">
+                    <img src="{{ object.registrationaddress.registrationpersonal.image.url }}" class="rounded img-fluid" style="width:200 em; height: 200 em" alt="User Image">
                     </div>
         </div>
 <!-- row ends Name and Spouse Name -->
@@ -188,7 +188,7 @@
                                             <td> {{ object.remarks}} </td>
                                             <td> 
 
-                                                <a href="payment" class="btn btn-outline-success btn-sm" role="button" ><i class="fa fa-plus" aria-hidden="true"></i> Payment</a> </td>
+                                                <a href="payment" class="btn btn-success btn-sm" role="button" ><!-- <i class="fa fa-plus" aria-hidden="true"></i>  --><i class="fa fa-credit-card" aria-hidden="true"></i>  Payment</a> </td>
                                  
                                         </tr>
                                         </tbody>

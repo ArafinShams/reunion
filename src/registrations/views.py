@@ -27,7 +27,7 @@ def Registration_createview(request):
 	address_form = RegistrationAddressCreateForm(prefix="address")
 	payment_form = RegistrationPaymentCreateForm(prefix="payment")
 	if request.POST:
-		personal_form = RegistrationPersonalCreateForm(request.POST or None,prefix="personal")
+		personal_form = RegistrationPersonalCreateForm(request.POST or None, request.FILES or None, prefix="personal")
 		address_form = RegistrationAddressCreateForm(request.POST or None,prefix="address")
 		payment_form = RegistrationPaymentCreateForm(request.POST or None,prefix="payment")
 	per_errors = None
@@ -43,8 +43,8 @@ def Registration_createview(request):
 		address.registrationpersonal = personal
 		address.mobilenumber = personal.mobilenumber
 
-#Address Total Rate Mate = 1000, Spous = 1000, Guests = 1000, Kids = 800, Others 500 
-		grand_total = (int(address.mate) * 1000) + (int(address.spous) * 1000) +  (int(address.guests) * 1000) + (int(address.kids) * 800) + (int(address.others) * 500)
+#Address Total Rate Mate = 2000, Spous = 7000, Guests = 7000, Kids = 700, Others = 500 
+		grand_total = (int(address.mate) * 2000) + (int(address.spous) * 700) +  (int(address.guests) * 700) + (int(address.kids) * 700) + (int(address.others) * 500)
 		address.total = str(grand_total)
 
 		address.save()

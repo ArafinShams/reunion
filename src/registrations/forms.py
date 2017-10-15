@@ -18,6 +18,7 @@ class RegistrationPersonalCreateForm(forms.ModelForm):
 		model = RegistrationPersonal
 		fields = [
 		'name',
+		'image',
 		'spousname',
 		'gender',
 		'kids',

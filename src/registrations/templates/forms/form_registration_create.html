@@ -1,9 +1,7 @@
 {% load crispy_forms_tags %}
 
 <div class="breadcrumb">
-    <h5 class="mb-0">
-			        	Personal Informations:
-				</h5>
+    <h5 class="mb-0 text-primary">Personal Informations:</h5>
 </div>
 <div class="container breadcrumb">
     <input type="hidden" class="form-control" name="_token" />
@@ -49,18 +47,19 @@
         </div>
     </div>
     <!-- Image upload -->
-    <!-- 				<div class="row">
+     				<div class="row">
 					<div class="form-group col-md-4">
-					    <label for="personal_image">Upload Image:</label>
+                        {{ personal_form.image|as_crispy_field:"bootstrap4" }}
+<!-- 					    <label for="personal_image">Upload Image:</label>
 					    <input type="file" class="form-control-file" name="personal_image" id="personal_image" aria-describedby="fileHelp" accept="image/*" >
-					    <small id="fileHelp" class="form-text text-muted">Upload and image and it's must.</small>
+					    <small id="fileHelp" class="form-text text-muted">Upload and image and it's must.</small> -->
 			     	</div>
-		     	</div> -->
+		     	</div> 
 </div>
 <!-- row Starts Blood Group Profession and Organizations
  -->
 <div class="breadcrumb">
-    <h5 class="mb-0">
+    <h5 class="mb-0 text-primary">
 						Address:
 				</h5>
 </div>
@@ -194,7 +193,7 @@
  -->
 </div>
 <div class="container breadcrumb">
-    <h5 class="mb-0">
+    <h5 class="mb-0 text-primary">
 			    		No. of Perticipents:
 			    	</h5>
 </div>
@@ -225,6 +224,16 @@
         </div>
 <!--         <div class="form-group col-md-4">
         </div> -->
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+              <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-lg"><i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+ Submit</button>
+        </div>
+        </div>
+      
     </div>
     <!-- row Ends Guest and Driver
  -->
