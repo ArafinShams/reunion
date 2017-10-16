@@ -4,14 +4,14 @@ from django.core.urlresolvers import reverse
 #------------Drop Down Fields------------------
 
 #kids Field dropdown @ RegistrationPersonal
-ADD_KIDS_NUMBER = (
+
+ADDKIDS_NUMBER = (
 	("0","NONE"),
 	("1","01"),
 	("2","02"),
 	("3","03"),
 	("4","04"),
-	("5","05"),
-
+	("5","05")
 )
 
 #gender Field dropdown @ RegistrationPersonal
@@ -44,13 +44,14 @@ SPOUS_NUMBER = (
 	("0","NONE"),
 	("1","01")
 	)
+
 KIDS_NUMBER = (
 	("0","NONE"),
 	("1","01"),
 	("2","02"),
 	("3","03"),
 	("4","04"),
-	("5","05"),
+	("5","05")
 
 )
 GUEST_NUMBER = (
@@ -94,7 +95,6 @@ PAYMENT_STATUS = (
 
 #payment metho dropdown @ RegistrationPersonal
 PAYMENT_METHOD = (
-	('None','NONE'),
 	('Cash','CASH'),
 	('Bank','BANK'),
 	('BKash', 'BKASH'),
@@ -107,7 +107,7 @@ class RegistrationPersonal(models.Model):
 	image          = models.FileField(null=True, blank=True)
 	spousname      = models.CharField(max_length=150, null=True, blank=True)
 	gender         = models.CharField(max_length=30, choices=GENDER_TYPE, default='Male')
-	kids           = models.CharField(max_length=30, null=True, blank=True,choices=ADD_KIDS_NUMBER, default="0" )
+	kids           = models.CharField(max_length=30, choices=ADDKIDS_NUMBER, default="0" )
 	mobilenumber   = models.CharField(max_length=30, unique=True)
 	email          = models.EmailField(max_length=250, null=True, blank=True)
 	bloodgroup     = models.CharField(max_length=30, choices=BLOOD_GROUP, default='None')
@@ -136,7 +136,7 @@ class RegistrationAddress(models.Model):
 	guests            = models.CharField(max_length=30, choices=GUEST_NUMBER, default="0")
 	others            = models.CharField(max_length=30, choices=OTHERS_NUMBER, default="0")
 	total             = models.CharField(max_length=100)
-	note              = models.CharField(max_length=100)
+	note              = models.CharField(max_length=100,null=True)
 	timestamp         = models.DateTimeField(auto_now_add=True)
 	updated           = models.DateTimeField(auto_now=True)
 	def __str__(self):
@@ -146,15 +146,13 @@ class RegistrationPayment(models.Model):
 	registrationaddress   = models.ForeignKey(RegistrationAddress, on_delete=models.CASCADE)
 	mobilenumber    	  = models.CharField(max_length=30, unique=True)
 	payableamount   	  = models.CharField(max_length=200)
-	paidamount      	  = models.CharField(max_length=200)
-	method          	  = models.CharField(max_length=30, choices=PAYMENT_METHOD, default='None')
+	paidamount      	  = models.CharField(max_length=200, default='0')
+	method          	  = models.CharField(max_length=30,choices=PAYMENT_METHOD, default='Cash')
 	details         	  = models.CharField(max_length=120)
 	status                = models.CharField(max_length=30, choices=PAYMENT_STATUS, default='Unpaid')
-	remarks         	  = models.CharField(max_length=120)
+	remarks         	  = models.CharField(max_length=120,null=True,)
 	timestamp       	  = models.DateTimeField(auto_now_add=True)
 	updated          	 = models.DateTimeField(auto_now=True)
 	def __str__(self):
 		return "%s %s" %(self.mobilenumber, self.paidamount)
-
-
-          						
+      						

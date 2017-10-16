@@ -32,8 +32,8 @@ urlpatterns = [
 
 # Static Pages
     url(r'^$', TemplateView.as_view(template_name='static_home.html'), name='home'),
-	url(r'^program/$', TemplateView.as_view(template_name ='static_program.html'), name='program'),
-	url(r'^contact/$', TemplateView.as_view(template_name ='static_contact.html'), name='contact' ),
+    url(r'^program/$', TemplateView.as_view(template_name ='static_program.html'), name='program'),
+    url(r'^contact/$', TemplateView.as_view(template_name ='static_contact.html'), name='contact' ),
 
 #Login View
     url(r'^login/$', LoginView.as_view(), {'next': 'home'}, name='login'),
@@ -44,7 +44,7 @@ urlpatterns = [
 # Registered List
     #Using Functionbased View
     #url(r'^registredlist/', Registred_Listview), #FunctionBasedview 
-    url(r'^registration/$', RegistredListview.as_view(), name='resistredlist'), #ClassBased view
+    url(r'^registration/$', RegistredListview.as_view(), name='registredlist'), #ClassBased view
 
 # Registered Details
     # # Details using Primary Key
@@ -57,6 +57,6 @@ urlpatterns = [
    url(r'^registration/(?P<pk>[0-9]+)/payment/$', PaymentUpdate.as_view(), name='payment'),
 ]
 
-if settings.DEBUG:
+if not settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

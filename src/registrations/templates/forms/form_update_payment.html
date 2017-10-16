@@ -1,8 +1,8 @@
 {% load crispy_forms_tags %}
 <div class="breadcrumb">
     <h5 class="mb-0">
-			        	Add Payment:
-				</h5>
+                        Add Payment:
+                </h5>
 </div>
 <div class="container breadcrumb">
     <input type="hidden" class="form-control" name="_token" />
@@ -14,12 +14,9 @@
             {{ form.payableamount|as_crispy_field:"bootstrap4" }}
         </div>
         <div class="form-group col-md-4 ">
-            <!-- Need to add Dropdown						 -->
             {{ form.paidamount|as_crispy_field:"bootstrap4"}}
         </div>
     </div>
-    <!-- row ends Name and Spouse Name  -->
-    <!-- row strts Kids, mobile no and email -->
     <div class="row">
         <div class="form-group col-md-3">
             {{ form.method|as_crispy_field:"bootstrap4" }}
@@ -34,3 +31,4 @@
             {{ form.remarks|as_crispy_field:"bootstrap4" }}
         </div>
     </div>
+</div>
