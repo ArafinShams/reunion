@@ -25,7 +25,7 @@
                    --> 
                 </div>
                 <!-- Slide Two - Set the background image for this slide in the line below -->
-                <div class="carousel-item" style="background-image: url({% static 'assets/images/images_mainsite/bnr_2.jpg' %})">
+                <div class="carousel-item" style="background-image: url({% static 'assets/images/images_mainsite/bnr_3.jpg' %})">
              <!--       <div class="carousel-caption d-none d-md-block">
                         <h3>Second Slide</h3>
                         <p>This is a description for the second slide.</p>
@@ -33,7 +33,7 @@
                     -->
                 </div>
                 <!-- Slide Three - Set the background image for this slide in the line below -->
-                <div class="carousel-item" style="background-image: url({% static 'assets/images/images_mainsite/bnr_3.jpg' %})">
+                <div class="carousel-item" style="background-image: url({% static 'assets/images/images_mainsite/bnr_2.jpg' %})">
                  <!--   <div class="carousel-caption d-none d-md-block">
                         <h3>Third Slide</h3>
                         <p>This is a description for the third slide.</p>
@@ -55,10 +55,10 @@
     <!-- Page Content -->
     <div class="container">
 
-        <h3 class="my-4">Welcome to Batch'94 Reunion</h3>
 <hr>    
         <!-- Marketing Icons Section -->
         <div class="row">
+
             <div class="col-lg-4 mb-4">
                 <div class="card h-100">
                     <h4 class="card-header">Program Details</h4>
@@ -66,10 +66,11 @@
                         <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
                     </div>
                     <div class="card-footer">
-                        <a href="/registration" class="btn btn-success"><i class="fa fa-sign-in" aria-hidden="true"></i>Details</a>
+                        <a href="{% url 'program' %}" class="btn btn-success"><i class="fa fa-sign-in" aria-hidden="true"></i>Details</a>
                     </div>
                 </div>
             </div>
+
             <div class="col-lg-4 mb-4">
                 <div class="card h-100">
                     <h4 class="card-header">Registration</h4>
@@ -77,19 +78,23 @@
                         <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis ipsam eos, nam perspiciatis natus commodi similique totam consectetur praesentium molestiae atque exercitationem ut consequuntur, sed eveniet, magni nostrum sint fuga.</p>
                     </div>
                     <div class="card-footer">
-                        <a href="/registration/register" class="btn btn-success"><i class="fa fa-sign-in" aria-hidden="true"></i>Details</a>
+                        <a href="{% url 'registration' %}" class="btn btn-success"><i class="fa fa-sign-in" aria-hidden="true"></i>Details</a>
                     </div>
                 </div>
             </div>
+
             <div class="col-lg-4 mb-4">
                 <div class="card h-100">
-                    <h4 class="card-header">Registered List</h4>
+                    <h4 class="card-header">Payment Details</h4>
                     <div class="card-block">
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
+                        <p class="card-text"><i class="fa fa-university" aria-hidden="true"></i><b> Bank Account</b></p>
+                        <p class="card-text"><b>A/C No </b> 165-110-0012841</p>
+                        <p class="card-text"><b>A/C Name </b> "On track Investment"</p>
+                        <p class="card-text"><b>Bank </b>Dutch Bangla Bank Ltd</p>
                     </div>
                     <div class="card-footer">
                 
-                          <a href="/registration/all" class="btn btn-success"><i class="fa fa-sign-in" aria-hidden="true"></i>Details</a>
+                          <a href="{% url 'registredlist' %}" class="btn btn-success"><i class="fa fa-sign-in" aria-hidden="true"></i>Details</a>
                     </div>
                 </div>
             </div>
@@ -100,12 +105,12 @@
 
         <!-- Call to Action Section -->
         <div class="row mb-4">
-            <div class="col-md-8">
+            <div class="col-md-12">
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, expedita, saepe, vero rerum deleniti beatae veniam harum neque nemo praesentium cum alias asperiores commodi.</p>
             </div>
-            <div class="col-md-4">
+       <!--      <div class="col-md-4">
                 <a class="btn btn-lg btn-secondary btn-block" href="#">Call to Action</a>
-            </div>
+            </div> -->
         </div>
 
     </div>

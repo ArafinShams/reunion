@@ -34,10 +34,10 @@
                                     <thead>
                                         <tr>
                                             <th>Reg no.</th>
-                                            <th>Image</th>
                                             <th>Name</th>
                                             <th>Blood Group</th>
                                             <th>Disitrict</th>
+                                            <th>Total</th>
                                             <th>Status</th>
                                             <th>Action</th>
                                         </tr>
@@ -46,14 +46,14 @@
 {% for obj in registered_lists %}
                                         <tr>
                                             <td>{{ obj.id }}</td>
-                                            <td><img src="" alt="User Image" style="width:32px; height: 32px; border-radius: 50% "></td>
+                                        
                                             <td>{{ obj.registrationaddress.registrationpersonal.name }}</td>
                                             <td>{{obj.registrationaddress.registrationpersonal.bloodgroup}}</td>
                                             <td>{{ obj.registrationaddress.district }}</td>
-                             
+                                            <td>{{ obj.payableamount }}</td>
                                             <td>{{ obj.status }}</td>
 
-                                            <td><a href="{{ obj.registrationaddress.registrationpersonal.id }}/" class="btn btn-info btn-sm" role="button" ><!-- <i class="fa fa-file-text-o" aria-hidden="true"></i> --><i class="fa fa-list" aria-hidden="true"></i>
+                                            <td><a href="{{ obj.registrationaddress.registrationpersonal.id }}/" class="btn btn-info btn-sm" role="button" ><i class="fa fa-list" aria-hidden="true"></i>
  Details</a>
                                             <a href="{{ obj.registrationaddress.registrationpersonal.id }}/payment/" class="btn btn-success btn-sm" role="button" >
 <i class="fa fa-credit-card" aria-hidden="true"></i> Payment</a>
