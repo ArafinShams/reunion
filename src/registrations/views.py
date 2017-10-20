@@ -15,7 +15,7 @@ from .models import RegistrationPersonal, RegistrationAddress, RegistrationPayme
 class RegistredListview(ListView):
 	template_name = 'registration_list.html'
 	context_object_name = 'registered_lists'
-	queryset =  RegistrationPayment.objects.all()
+	queryset =  RegistrationPayment.objects.all().order_by('id')
 
 class RegistredDetailView(LoginRequiredMixin, DetailView):
 	model = RegistrationPayment
